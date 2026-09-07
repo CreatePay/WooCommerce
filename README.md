@@ -20,13 +20,16 @@ What does it do?
 Presents the option to pay with credit card or debit card via the Cardstream payment gateway.
 
 INSTALLATION
+
+Download the zip file for the folder 'createpay'
+
 Go to the plugins section of the admin panel
 
 Click Add New
 
 Click Upload plugin (Near the top left of the page next to the menu)
 
-Click the "Choose File" button and select the module (which will be the whole zip file this readme is in)
+Click the "Choose File" button and select the zip file you previously downloaded
 
 Click the "Install Now" button and then click the "Activate" button
 
