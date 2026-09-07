@@ -96,8 +96,11 @@ When the popup appears, click OK. This will verify the Domain Verification File 
 ----------------------
 
 Troubleshooting
+
 Problem: No Green Tick message shows in dashboard.createpay.com after entering URL
+
 Solution: Ensure URL is entered exactly (with or without www. depending on domain setup). Go to {WEBSITE URL}/.well-known/apple-developer-merchantid-domain-association - this should show the contents of the file. If it does not show, ensure nothing at Server level is blocking access to the file being read. If problem persists, contact CreatePay Support
 
 Problem: Error message - Transaction is not in a refundable state when trying to process a refund through the WooCommerce module
+
 Solution: You will need to access Dashboard.createpay.com, Navigate to preferences, Credentials, Direct integration - Here you will need to put the IP address of your server. If the issue persists contact CreatePay Support
