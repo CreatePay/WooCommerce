@@ -1,109 +1,163 @@
-Setting up the module requires at a minimum a merchantID, a signature/secret key and a gateway URL. If you already have a CreatePay account please contact createcommerce@createpay.com. For all other enquires please contact hello@createpay.com
+# CreatePay for WooCommerce
 
+A payment module for WooCommerce that enables customers to pay for their orders using the Cardstream hosted payment form or direct payment gateway.
 
+## Requirements
 
-# WooCommerce
-Payment module for WooCommerce
+- **WooCommerce:** Version 10.x
+- **WordPress:** Up to version 7.x
+- **PHP:** BCMath extension
 
+## Configuration Requirements
 
+To configure the module, you will need the following:
 
-COMPATIBILITY
-Compatible with version 10.x of WooCommerce and upto 7.x of Wordpress.
+- Merchant ID
+- Signature/Secret Key
+- Gateway URL
 
-REQUIREMENTS
-PHP-BCMaths
+If you already have a CreatePay account, please contact [createcommerce@createpay.com](mailto:createcommerce@createpay.com).
 
-INTRODUCTION
-This module enables the WooCommerce customers to pay for their items using the Cardstream hosted form or direct payment gateway.
+For all other enquiries, please contact [hello@createpay.com](mailto:hello@createpay.com).
 
-What does it do?
-Presents the option to pay with credit card or debit card via the Cardstream payment gateway.
+## Features
 
-INSTALLATION
+The CreatePay WooCommerce module allows customers to pay for their orders using the Cardstream payment gateway.
 
-Download the zip file for the folder 'createpay'
+Supported payment methods include:
 
-Go to the plugins section of the admin panel
+- **Card:** Displays card payment fields directly on the WooCommerce checkout page.
+- **Hosted:** Redirects customers to a separate checkout page containing the hosted payment form in an iframe.
+- **Apple Pay:** Supports Apple Pay payments, subject to the required configuration.
 
-Click Add New
+## Installation
 
-Click Upload plugin (Near the top left of the page next to the menu)
+### Option 1: Install via the WordPress Admin Panel
 
-Click the "Choose File" button and select the zip file you previously downloaded
+1. Download the ZIP file containing the `createpay` plugin folder.
+2. Log in to your WordPress admin panel.
+3. Navigate to **Plugins > Add New**.
+4. Click **Upload Plugin**.
+5. Click **Choose File** and select the downloaded ZIP file.
+6. Click **Install Now**.
+7. Once installation is complete, click **Activate Plugin**.
 
-Click the "Install Now" button and then click the "Activate" button
+### Option 2: Manual Installation
 
-Go to your plugin settings which can be found at WooCommerce > CreatePay
+1. Extract the downloaded ZIP file.
+2. Upload the `createpay` plugin folder to your WordPress installation's `wp-content/plugins/` directory.
+3. Log in to your WordPress admin panel.
+4. Navigate to **Plugins**.
+5. Locate the CreatePay plugin and click **Activate**.
 
-In the main plugin settings, enter your Merchant ID, Security Key and Country Code (826 for UK). 
+## Configuration
 
-Leave Payment Gateway as it is
+Once the plugin has been installed and activated, follow these steps to configure it.
 
-Save changes
+### 1. Configure the Main Settings
 
-Go to Payment Methods
+1. Navigate to **WooCommerce > CreatePay** in your WordPress admin panel.
+2. Enter the following details:
+   - **Merchant ID:** Your CreatePay merchant ID.
+   - **Security Key:** Your CreatePay security key.
+   - **Country Code:** Enter `826` for the United Kingdom.
+3. Leave the **Payment Gateway** setting unchanged.
+4. Click **Save Changes**.
 
-For Card Fields to appear on the Checkout Page, enable payment method 'Card' and save
+### 2. Configure Payment Methods
 
-For Card Fields to appear on separate page after Checkout page (iframe), enable 'Hosted' and save
+Navigate to the **Payment Methods** section of the plugin settings.
 
-To enable ApplePay you will need to navigate to dashboard.createpay.com and log in with your username and password provided
+Choose the payment method you want to enable:
 
-Once logged in you will need to go to Preferences > Digital Wallets
+| Payment Method | Description |
+| --- | --- |
+| Card | Displays card payment fields directly on the WooCommerce checkout page. |
+| Hosted | Displays the hosted payment form on a separate page after checkout, using an iframe. |
+| Hosted Fields | Displays the hosted payment fields within the iframe. |
 
-Just above "Update Apple Pay Preferences" you will see a hyperlink to download our CSR
+Enable the required payment method and click **Save Changes**.
 
-Once downloaded open the file, Copy and Paste the content into the plugin under ApplePay and in Domain Verification File
+### 3. Configure Apple Pay
 
-Save changes
+To enable Apple Pay, you must configure your domain and upload the required verification file.
 
-Go back to dashboard.createpay.com and in Preferences > Digital Wallets, enter your website URL (exactly as it appears at root level) and click Save
+#### Step 1: Download the CSR
 
-When the popup appears, click OK. This will verify the Domain Verification File is present and accessible on your site with a Green Tick message at the top of the page
+1. Navigate to the [CreatePay Dashboard](https://dashboard.createpay.com/).
+2. Log in using the credentials provided to you.
+3. Navigate to **Preferences > Digital Wallets**.
+4. Locate the hyperlink to download the CSR, just above **Update Apple Pay Preferences**.
+5. Download the CSR file.
 
-----------------------
+#### Step 2: Configure Apple Pay in WooCommerce
 
-Manual installation
-Unzip and upload the plugin folder to your /wp-content/plugins/ directory
+1. Open the downloaded CSR file.
+2. Copy its contents.
+3. Return to your WordPress admin panel.
+4. Navigate to **WooCommerce > CreatePay**.
+5. Locate the Apple Pay settings.
+6. Paste the copied content into the appropriate Apple Pay and **Domain Verification File** fields.
+7. Click **Save Changes**.
 
-Activate the plugin through the Plugins menu in WordPress
+#### Step 3: Verify Your Domain
 
-Go to your plugin settings which can be found at WooCommerce > CreatePay
+1. Return to the [CreatePay Dashboard](https://dashboard.createpay.com/).
+2. Navigate to **Preferences > Digital Wallets**.
+3. Enter your website URL exactly as it appears at the root level of your domain.
+4. Click **Save**.
+5. When the confirmation popup appears, click **OK**.
 
-In the main plugin settings, enter your Merchant ID, Security Key and Country Code (826 for UK). 
+The dashboard will check whether the domain verification file is present and accessible on your website.
 
-Leave Payment Gateway as it is
+If verification is successful, a green tick will appear at the top of the page.
 
-Save changes
+## Troubleshooting
 
-Go to Payment Methods
+### Apple Pay Domain Verification Fails
 
-For Card Fields to appear on the Checkout Page, enable payment method 'Card' and save
+**Problem:** No green tick appears in the CreatePay Dashboard after entering your website URL.
 
-For Card Fields to appear on separate page after Checkout page (iframe), enable 'Hosted' and save
+**Solution:**
 
-To enable ApplePay you will need to navigate to dashboard.createpay.com and log in with your username and password provided
+1. Check that the website URL has been entered correctly.
+2. Ensure the URL matches your domain configuration, including whether or not it uses `www`.
+3. Open the following URL in your browser, replacing `{WEBSITE_URL}` with your actual website address:
 
-Once logged in you will need to go to Preferences > Digital Wallets
+   ```text
+   https://{WEBSITE_URL}/.well-known/apple-developer-merchantid-domain-association
+   ```
 
-Just above "Update Apple Pay Preferences" you will see a hyperlink to download our CSR
+4. Verify that the contents of the domain verification file are displayed.
 
-Once downloaded open the file, Copy and Paste the content into the plugin under ApplePay and in Domain Verification File
+If the file is not accessible:
 
-Save changes
+- Check that the file has been uploaded and configured correctly.
+- Ensure that your web server is not blocking access to the file.
+- Verify that the file can be accessed publicly at the specified URL.
 
-Go back to dashboard.createpay.com and in Preferences > Digital Wallets, enter your website URL (exactly as it appears at root level) and click Save
+If the problem persists, contact CreatePay Support.
 
-When the popup appears, click OK. This will verify the Domain Verification File is present and accessible on your site with a Green Tick message at the top of the page
+### Refund Error: Transaction Is Not in a Refundable State
 
-----------------------
+**Problem:** The following error appears when attempting to process a refund through the WooCommerce module:
 
-Troubleshooting
+`Transaction is not in a refundable state`
 
-Problem: No Green Tick message shows in dashboard.createpay.com after entering URL
+**Solution:**
 
-Solution: Ensure URL is entered exactly (with or without www. depending on domain setup). Go to {WEBSITE URL}/.well-known/apple-developer-merchantid-domain-association - this should show the contents of the file. If it does not show, ensure nothing at Server level is blocking access to the file being read. If problem persists, contact CreatePay Support
+1. Log in to the [CreatePay Dashboard](https://dashboard.createpay.com/).
+2. Navigate to **Preferences > Credentials > Direct Integration**.
+3. Enter your server's IP address.
+4. Save the changes and try processing the refund again.
 
-Problem: Error message - Transaction is not in a refundable state when trying to process a refund through the WooCommerce module
+If the issue persists, contact CreatePay Support.
 
-Solution: You will need to access Dashboard.createpay.com, Navigate to preferences, Credentials, Direct integration - Here you will need to put the IP address of your server. If the issue persists contact CreatePay Support
+---
+
+## Support
+
+For assistance with an existing CreatePay account or technical support, contact:
+
+- **Existing CreatePay accounts:** [createcommerce@createpay.com](mailto:createcommerce@createpay.com)
+- **General enquiries:** [hello@createpay.com](mailto:hello@createpay.com)
